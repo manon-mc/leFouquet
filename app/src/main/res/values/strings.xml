@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">LeFouquetResto</string>
+    <string name="home_starter">Entrées</string>
+    <string name="home_plats">Plats</string>
+    <string name="home_desserts">Desserts</string>
+    <string name="main_action5">Bienvenue au restaurant LeFouquet </string>
+    <string name="main_action6">Faites votre choix !</string>
+
+    <string name="item_title">Entrées</string>
 </resources>
