@@ -7,10 +7,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/categoryDetails"
+        android:id="@+id/detailTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:text="Ma page des details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
