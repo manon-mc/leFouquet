@@ -67,6 +67,7 @@ class BleActivity : AppCompatActivity() {
 
     private val leDeviceListAdapter = BleScanAdapter()
 
+    
     private val leScanCallback: ScanCallback = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
