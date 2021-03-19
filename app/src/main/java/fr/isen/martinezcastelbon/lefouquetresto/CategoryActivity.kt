@@ -60,7 +60,7 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
     }
 
     override fun onItemClicked(item: Dish) {
-        val intent = Intent(this, DetailActivity::class.java)
+        val intent = Intent(this, DetailsActivity::class.java)
         intent.putExtra("dish", item)
         startActivity(intent)
     }

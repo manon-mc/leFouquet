@@ -10,6 +10,10 @@
     <string name="detailTitle">Ma page des details</string>
     <string name="categoryPrice">0.00€</string>
 
+    <string name="nomPlats">Entrées</string>
+    <string name="detailsDesPlats">details des plats </string>
+    <string name="totalButton">Total de votre commande</string>
+
     <string name="blebut">BLUETOOTH</string>
     <string name="ble_title">Lancer le scan BLE</string>
     <string name="ble_title2">Le scan BLE charge</string>
