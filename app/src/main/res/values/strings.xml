@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">LeFouquetResto</string>
     <string name="home_starter">Entrées</string>
-    <string name="home_plats">Plats</string>
+    <string name="home_dishes">Plats</string>
     <string name="home_desserts">Desserts</string>
     <string name="main_action5">Bienvenue au restaurant LeFouquet </string>
     <string name="main_action6">Faites votre choix !</string>
 
     <string name="item_title">Entrées</string>
+    <string name="detailTitle">Ma page des details</string>
+    <string name="categoryPrice">0.00€</string>
+
+    <string name="blebut">BLUETOOTH</string>
+    <string name="ble_title">Lancer le scan BLE</string>
+    <string name="ble_title2">Le scan BLE charge</string>
 </resources>

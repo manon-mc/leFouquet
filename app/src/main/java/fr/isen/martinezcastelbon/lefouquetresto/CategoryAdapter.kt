@@ -3,11 +3,13 @@ package fr.isen.martinezcastelbon.lefouquetresto
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.martinezcastelbon.lefouquetresto.databinding.CellCategoryBinding
+import fr.isen.martinezcastelbon.lefouquetresto.model.Dish
 
-class CategoryAdapter(private val categories: List<String>, private val clickListener: onItemClickListener) :
+class CategoryAdapter(private val categories: List<Dish>, private val clickListener: onItemClickListener) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
 
 
@@ -26,7 +28,7 @@ class CategoryAdapter(private val categories: List<String>, private val clickLis
 
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.title.text = categories[position]
+        holder.title.text = categories[position].title
         holder.layout.setOnClickListener{
             clickListener.onItemClicked(categories[position])
         }
@@ -35,9 +37,10 @@ class CategoryAdapter(private val categories: List<String>, private val clickLis
     inner class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val title: TextView = view.findViewById(R.id.cellCategoryTitle)
         val layout = view.findViewById<View>(R.id.cellLayout)
+        val  images: ImageView = view.findViewById(R.id.imageView2)
         }
     interface onItemClickListener {
-        fun onItemClicked(item: String)
+        fun onItemClicked(item: Dish)
     }
 
     }

@@ -3,7 +3,9 @@ package fr.isen.martinezcastelbon.lefouquetresto
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import fr.isen.martinezcastelbon.lefouquetresto.ble.BleActivity
 import fr.isen.martinezcastelbon.lefouquetresto.databinding.ActivityHomeBinding
 
 
@@ -26,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
             intent.putExtra("category", "Entrées")
             startActivity(intent)
         }
-        binding.plats.setOnClickListener {
+        binding.dishes.setOnClickListener {
             // bouton plats
            // Toast.makeText(this, "Plats", Toast.LENGTH_SHORT)
             val intent = Intent(this, CategoryActivity::class.java)
@@ -40,8 +42,18 @@ class HomeActivity : AppCompatActivity() {
             intent.putExtra("category", "Desserts")
             startActivity(intent)
         }
+        binding.blebutton.setOnClickListener{
+            val intent = Intent(this, BleActivity::class.java)
+            startActivity(intent)
+        }
+        //val fruit = Fruit.BANANA
+        //fruit.weight = 19
 
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("mon tag","non de sort pas")
     }
 }
 

@@ -22,14 +22,14 @@
         app:layout_constraintTop_toBottomOf="@+id/Text2" />
 
     <Button
-        android:id="@+id/plats"
+        android:id="@+id/dishes"
         android:layout_width="170dp"
         android:layout_height="59dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
         android:backgroundTint="#A8E85223"
         android:fontFamily="@font/autour_one"
-        android:text="@string/home_plats"
+        android:text="@string/home_dishes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
         android:id="@+id/desserts"
         android:layout_width="170dp"
         android:layout_height="59dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#A8E85223"
         android:fontFamily="@font/autour_one"
         android:text="@string/home_desserts"
@@ -74,20 +74,19 @@
 
     <ImageView
         android:id="@+id/imagePlats1"
-        android:layout_width="185dp"
-        android:layout_height="137dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="140dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.964"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/plats"
+        app:layout_constraintStart_toEndOf="@+id/imageEntrees1"
+        app:layout_constraintTop_toBottomOf="@+id/dishes"
         app:srcCompat="@drawable/image2" />
 
     <ImageView
         android:id="@+id/imageDesserts1"
-        android:layout_width="246dp"
-        android:layout_height="128dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="253dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,9 +95,9 @@
 
     <ImageView
         android:id="@+id/imageEntrees1"
-        android:layout_width="206dp"
-        android:layout_height="142dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="189dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,5 +134,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Text1" />
+
+    <Button
+        android:id="@+id/blebutton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#CDC35E35"
+        android:text="@string/blebut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageDesserts1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
