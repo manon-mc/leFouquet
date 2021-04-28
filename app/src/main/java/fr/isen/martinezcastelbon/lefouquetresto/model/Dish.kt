@@ -5,9 +5,11 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class Dish(
+    @SerializedName("id") val id: String,
     @SerializedName("name_fr") val title: String,
-    @SerializedName("prices") val prices: List<Price>,
-    @SerializedName("images") private val images: List<String>,
+    @SerializedName("images")  val images: List<String>,
+    @SerializedName("ingredients") val ingredients: List<Ingredient>,
+    @SerializedName("prices") val prices: List<Price>
 ): Serializable {
 
     fun getAffichagePrice() = prices[0].price

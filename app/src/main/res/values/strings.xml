@@ -13,6 +13,7 @@
     <string name="nomPlats">Entrées</string>
     <string name="detailsDesPlats">details des plats </string>
     <string name="totalButton">Total de votre commande</string>
+    <string name="quantite">quantite</string>
 
     <string name="blebut">BLUETOOTH</string>
     <string name="ble_title">Lancer le scan BLE</string>
