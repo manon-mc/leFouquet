@@ -43,7 +43,7 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
     }
 
     private fun displayMenu(menu: MenuResult, categoryTitle: String){
-        val dishesByCategory = menu.categories.firstOrNull{ it.name == categoryTitle }?.dishes ?: listOf()
+        val dishesByCategory = menu.categories.firstOrNull{ it.name == categoryTitle }?.items ?: listOf()
         binding.categoryList.layoutManager = LinearLayoutManager(this)
         binding.categoryList.adapter = CategoryAdapter(dishesByCategory,this)
     }
@@ -61,7 +61,7 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
 
     override fun onItemClicked(item: Dish) {
         val intent = Intent(this, DetailsActivity::class.java)
-        intent.putExtra("dish", item)
+        intent.putExtra("items", item)
         startActivity(intent)
     }
 

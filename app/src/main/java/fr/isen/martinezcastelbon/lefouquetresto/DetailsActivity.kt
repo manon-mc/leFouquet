@@ -1,45 +1,62 @@
 package fr.isen.martinezcastelbon.lefouquetresto
 
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.squareup.picasso.Picasso
-//import com.synnapps.carouselview.ImageListener
-import fr.isen.martinezcastelbon.lefouquetresto.databinding.ActivityDetailsBinding
+
+
 import fr.isen.martinezcastelbon.lefouquetresto.model.Dish
+import android.view.LayoutInflater
+import fr.isen.martinezcastelbon.lefouquetresto.databinding.ActivityDetailsBinding
 
 
 class DetailsActivity : AppCompatActivity() {
 
-    //private lateinit var binding: ActivityDetailsBinding
-    //private lateinit var dish: Dish
+    private lateinit var binding: ActivityDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //binding = ActivityDetailsBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_details)
 
-        //dish = (intent.getSerializableExtra("dish") as? Dish)!!
+        binding = ActivityDetailsBinding.inflate(layoutInflater)
+        val dataItem = intent.getSerializableExtra("items") as? Dish
+        setContentView(binding.root)
 
-        //if (dish != null) {
-         //   binding.itemTitle.text = dish.title
-          //  binding.carousel.pageCount = dish.images.size
-          //  binding.carousel.setImageListener(imageListener)
-        //}
-        //if (dish != null) {
-        //    Toast.makeText(this, dish.title ?: "detail", Toast.LENGTH_LONG).show()
-        //}
+        if (dataItem != null) {
+            binding.nomPlats.text = dataItem.title
+            binding.titlePrice.text = dataItem.getAffichagePrice()
+            binding.detailsDesPlats.text = dataItem.getIngredients()
+            binding.totalPrice.text = dataItem.getAffichagePrice()
+            //binding.catagoriesImageDetail.pageCount = dataItem.images.size
+        }
+        var quantity = 0
+        if (dataItem != null) {
+            calculTotal(quantity, dataItem)
+        }
+
+        // Bouton + plus
+        binding.boutonPlus.setOnClickListener {
+            quantity++
+            binding.quantite.text = quantity.toString()
+            if (dataItem != null) {
+                calculTotal(quantity, dataItem)
+            }
+        }
+
+        // Bouton - moins
+        binding.boutonMoins.setOnClickListener {
+            if (quantity > 0)
+                quantity--
+            binding.quantite.text = quantity.toString()
+            if (dataItem != null) {
+                calculTotal(quantity, dataItem)
+            }
+        }
 
     }
-    //val imageListener: ImageListener = object : ImageListener {
-    //    override fun setImageForPosition(position: Int, imageView: ImageView?) {
-    //        if (dish == null) {
-    //            Picasso.get().load(dish.getFirstPicture()).into(imageView)
-    //        } else {
-    //            Picasso.get().load(dish.images.get(position)).into(imageView)
-     //       }
-       // }
-    //}
+    private fun calculTotal(quantity: Int, itemPricedata: Dish) {
+        val total = quantity * itemPricedata.getPrice()
+        "Total : $total €".also {
+            binding.totalPrice.text = it
+        }
+    }
 
 }

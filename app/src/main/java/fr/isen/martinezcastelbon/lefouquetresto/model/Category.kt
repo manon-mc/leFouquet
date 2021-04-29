@@ -5,7 +5,7 @@ import java.io.Serializable
 
 data class Category(
     @SerializedName("name_fr") val name: String,
-    @SerializedName("items") val dishes: List<Dish>,
+    @SerializedName("items") val items: List<Dish>,
     @SerializedName("prices") private val prices: List<Price>,
     @SerializedName("images") private val images: List<String>,
 ): Serializable {
