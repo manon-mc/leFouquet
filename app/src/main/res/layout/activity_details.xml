@@ -6,26 +6,27 @@
     android:layout_height="match_parent"
     android:background="#35FB906D">
 
-    <ImageView
-        android:id="@+id/imageDetails"
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/carouselImageView"
         android:layout_width="0dp"
-        android:layout_height="198dp"
-        app:srcCompat="@drawable/image2"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="19dp" />
+        android:layout_height="249dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/nomPlats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/nomPlats"
         android:textAlignment="center"
         android:textColor="#D8673A"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/carouselImageView" />
 
     <TextView
         android:id="@+id/detailsDesPlats"
