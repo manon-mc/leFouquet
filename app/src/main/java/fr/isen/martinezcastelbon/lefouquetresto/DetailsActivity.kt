@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import fr.isen.martinezcastelbon.lefouquetresto.model.Dish
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
-import com.synnapps.carouselview.CarouselView
-import com.synnapps.carouselview.ImageListener
 import fr.isen.martinezcastelbon.lefouquetresto.databinding.ActivityDetailsBinding
 
 
@@ -22,27 +20,27 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         val dataItem = intent.getSerializableExtra("items") as? Dish
         setContentView(binding.root)
-        var sampleImages = arrayOf(dataItem?.images?.get(0))
-        val carouselView = findViewById<CarouselView>(R.id.carouselImageView);
+        //var sampleImages = arrayOf(dataItem?.images?.get(0))
+        //val carouselView = findViewById<CarouselView>(R.id.carouselImageView);
 
-        var imageListener: ImageListener = object : ImageListener {
-            override fun setImageForPosition(position: Int, imageView: ImageView) {
-                if (dataItem != null) {
-                    Picasso.get().load(dataItem.images[position]).into(imageView)
-                }
-            }
-        }
-        carouselView.setPageCount(sampleImages.size);
-        carouselView.setImageListener(imageListener);
+        //var imageListener: ImageListener = object : ImageListener {
+        //    override fun setImageForPosition(position: Int, imageView: ImageView) {
+         //       if (dataItem != null) {
+        //            Picasso.get().load(dataItem.images[position]).into(imageView)
+         //       }
+         //   }
+        //}
+        //carouselView.setPageCount(sampleImages.size);
+        //carouselView.setImageListener(imageListener);
 
         if (dataItem != null) {
             binding.nomPlats.text = dataItem.title
             binding.titlePrice.text = dataItem.getAffichagePrice()
             binding.detailsDesPlats.text = dataItem.getIngredients()
             binding.totalPrice.text = dataItem.getAffichagePrice()
-            binding.carouselImageView.pageCount = dataItem.images.size
+            //binding.carouselImageView.pageCount = dataItem.images.size
         }
-        binding.carouselImageView.setImageListener(imageListener)
+        //binding.carouselImageView.setImageListener(imageListener)
 
         var quantity = 0
         if (dataItem != null) {

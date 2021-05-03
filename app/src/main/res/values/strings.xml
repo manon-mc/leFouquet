@@ -18,4 +18,10 @@
     <string name="blebut">BLUETOOTH</string>
     <string name="ble_title">Lancer le scan BLE</string>
     <string name="ble_title2">Le scan BLE charge</string>
+
+    <string name="ble_device_status">Status : %1$s</string>
+    <string name="ble_device_status_connecting">Connexion en cours</string>
+    <string name="ble_device_status_disconnected"></string>
+    <string name="ble_status_connected">Connecté</string>
+    <string name="ble_device_status_disconnecting">Déconnexion en cours</string>
 </resources>

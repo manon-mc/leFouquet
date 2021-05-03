@@ -6,27 +6,17 @@
     android:layout_height="match_parent"
     android:background="#35FB906D">
 
-    <com.synnapps.carouselview.CarouselView
-        android:id="@+id/carouselImageView"
-        android:layout_width="0dp"
-        android:layout_height="249dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/nomPlats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="@string/nomPlats"
         android:textAlignment="center"
         android:textColor="#D8673A"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carouselImageView" />
+        tools:layout_editor_absoluteY="273dp" />
 
     <TextView
         android:id="@+id/detailsDesPlats"
