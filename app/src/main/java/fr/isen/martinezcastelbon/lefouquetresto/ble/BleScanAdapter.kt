@@ -26,7 +26,7 @@ class BleScanAdapter (private val listdevice: MutableList<ScanResult>) :
     }
 
     fun addDevice(appareilData: ScanResult) {
-        Log.d("BleScanAdapter", "ajout de  : ${appareilData.device.address}")
+        //Log.d("BleScanAdapter", "ajout de  : ${appareilData.device.address}")
         if (!listdevice.contains(appareilData))
             listdevice.add(appareilData)
     }

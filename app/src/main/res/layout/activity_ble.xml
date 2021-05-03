@@ -29,7 +29,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bleScanTitle"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_play" />
+        app:srcCompat="@drawable/ic_play"
+        android:contentDescription="TODO" />
 
     <ProgressBar
         android:id="@+id/progressBarBle"
