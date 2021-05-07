@@ -28,7 +28,7 @@ class BleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBleBinding
     private var isScanning =false
     private var bluetoothAdapter: BluetoothAdapter? =null
-    private var deviceListAdapter: BleScanAdapter? = null
+    private var deviceListAdapter: BleAdapter? = null
     private val handler = Handler()
 
     private var bluetoothLeScanner: BluetoothLeScanner? = bluetoothAdapter?.bluetoothLeScanner
@@ -45,7 +45,7 @@ class BleActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         bluetoothAdapter = getSystemService(BluetoothManager::class.java)?.adapter
-        initRecyclerDevice()
+        //initRecyclerDevice()
         startBLEIfPossible()
         isDeviceHasBLESupport()
 
@@ -82,6 +82,7 @@ class BleActivity : AppCompatActivity() {
                 //on peut pas faire du BLE
                 Log.d("ScanDevices", "onRequestPermissionsResult not PERMISSION")
                 bluetoothLeScanner = bluetoothAdapter?.bluetoothLeScanner
+                initRecyclerDevice()
             }
         }
     }
@@ -103,12 +104,26 @@ class BleActivity : AppCompatActivity() {
         return packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)
     }
 
+    //private fun initRecyclerDevice() {
+        //deviceListAdapter = BleScanAdapter(mutableListOf()) {
+        //    val intent = Intent(this, BleScanDetailActivity::class.java)
+        //    intent.putExtra(/*BluetoothDevice.EXTRA_DEVICE*/"ble_device", it.device)
+         //   startActivity(intent)
+        //}
+       // binding.listeBle.layoutManager = LinearLayoutManager(this)
+        //binding.listeBle.adapter = deviceListAdapter
+    //}
+
     private fun initRecyclerDevice() {
-        deviceListAdapter = BleScanAdapter(mutableListOf())
         binding.listeBle.layoutManager = LinearLayoutManager(this)
+
+        deviceListAdapter = BleAdapter(mutableListOf()) {
+            val intent = Intent(this, BleScanDetailActivity::class.java)
+            intent.putExtra(/*BluetoothDevice.EXTRA_DEVICE*/"ble_device", it.device)
+            startActivity(intent)
+        }
         binding.listeBle.adapter = deviceListAdapter
     }
-
 
     private fun togglePlaypauseAction(){
         isScanning = !isScanning
@@ -119,7 +134,8 @@ class BleActivity : AppCompatActivity() {
             binding.divider.isVisible = false
             scanLeDevice()
 
-        } else{
+        }
+        else{
             binding.bleScanTitle.text = getString(R.string.ble_title2)
             binding.blePlayPause.setImageResource(R.drawable.ic_play)
             binding.progressBarBle.visibility = View.INVISIBLE
@@ -127,6 +143,7 @@ class BleActivity : AppCompatActivity() {
 
         }
     }
+
 
 
     private fun scanLeDevice() {
@@ -147,12 +164,19 @@ class BleActivity : AppCompatActivity() {
 
     // Device scan callback.
     private val leScanCallback: ScanCallback = object : ScanCallback() {
+
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
-            Log.d("BLEScan", "CC LE SCAN")
-            deviceListAdapter?.addDevice(result)
-            deviceListAdapter?.notifyDataSetChanged()
+            Log.d("test", "test du scanner")
 
+            if (binding.searchViewSearchBar.queryHint == result.device.name) {
+                deviceListAdapter?.addDevice(result)
+                deviceListAdapter?.notifyDataSetChanged()
+            }
+            else {
+                deviceListAdapter?.addDevice(result)
+                deviceListAdapter?.notifyDataSetChanged()
+            }
         }
     }
     companion object{

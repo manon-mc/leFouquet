@@ -1,7 +1,7 @@
 package fr.isen.martinezcastelbon.lefouquetresto.model
 
 import android.bluetooth.BluetoothProfile
-import android.support.annotation.StringRes
+import androidx.annotation.StringRes
 import fr.isen.martinezcastelbon.lefouquetresto.R
 
 enum class BLEConnexionState(val state: Int, @StringRes val text: Int) {

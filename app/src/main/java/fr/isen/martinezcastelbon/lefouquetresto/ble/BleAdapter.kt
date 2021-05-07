@@ -1,15 +1,17 @@
 package fr.isen.martinezcastelbon.lefouquetresto.ble
 
 import android.bluetooth.le.ScanResult
-import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import fr.isen.martinezcastelbon.lefouquetresto.R
 import fr.isen.martinezcastelbon.lefouquetresto.databinding.CellBleBinding
 
-class BleScanAdapter (private val listdevice: MutableList<ScanResult>) :
-    RecyclerView.Adapter<BleScanAdapter.DeviceViewHolder>() {
+class BleAdapter(private val listdevice: MutableList<ScanResult>,
+                 private val clickListener: (ScanResult) -> Unit) :
+    RecyclerView.Adapter<BleAdapter.DeviceViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -23,6 +25,11 @@ class BleScanAdapter (private val listdevice: MutableList<ScanResult>) :
     override fun onBindViewHolder(holder: DeviceViewHolder, position: Int) {
         holder.deviceAddress.text = listdevice[position].device.address
         holder.titledevice.text = listdevice[position].device.name
+        holder.numero.text = listdevice[position].rssi.toString()
+
+        holder.layout.setOnClickListener {
+            clickListener.invoke(listdevice[position])
+        }
     }
 
     fun addDevice(appareilData: ScanResult) {
@@ -36,5 +43,8 @@ class BleScanAdapter (private val listdevice: MutableList<ScanResult>) :
     class DeviceViewHolder(binding: CellBleBinding) : RecyclerView.ViewHolder(binding.root) {
         val titledevice: TextView = binding.titreDevice
         val deviceAddress: TextView = binding.adresseDevice
+        val numero: TextView = itemView.findViewById(R.id.buttonNum)
+        val layout = itemView.findViewById<View>(R.id.cellDevice)
     }
 }
+
