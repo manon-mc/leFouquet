@@ -26,4 +26,7 @@
     <string name="ble_device_status_disconnecting">Déconnexion en cours</string>
 
     <string name="entrerVal">Entrez une valeur</string>
+    <string name="lireAction">LIRE</string>
+    <string name="ecrireAction">ECRIRE</string>
+    <string name="notifAction">NOTIFIER</string>
 </resources>
